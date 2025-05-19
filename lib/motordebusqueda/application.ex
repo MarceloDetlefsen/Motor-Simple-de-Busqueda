@@ -1,3 +1,15 @@
+# Universidad del Valle de Guatemala
+# Algoritmos y Estructuras de Datos
+# Ing. Douglas Barrios
+# @author: Marcelo Detlefsen
+# Creación: 18/05/2025
+# Última modificación: 19/05/2025
+# File Name: application.ex
+# Descripción: Este módulo define la aplicación principal para el motor de búsqueda simple.
+#              Al iniciar, se asegura de que exista una tabla ETS llamada :search_index,
+#              la cual se utilizará para almacenar el índice de búsqueda en memoria.
+#              Además, configura el supervisor principal de la aplicación.
+
 defmodule Motordebusqueda.Application do
   @moduledoc false
 

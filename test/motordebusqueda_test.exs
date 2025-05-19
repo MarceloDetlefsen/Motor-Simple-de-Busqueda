@@ -1,3 +1,13 @@
+# Universidad del Valle de Guatemala
+# Algoritmos y Estructuras de Datos
+# Ing. Douglas Barrios
+# @author: Marcelo Detlefsen
+# Creación: 18/05/2025
+# Última modificación: 19/05/2025
+# File Name: motordebusqueda_test.exs
+# Descripción: Pruebas unitarias para el módulo Motordebusqueda.
+#              Incluye pruebas para la inicialización, búsqueda y funcionamiento básico del motor de búsqueda.
+
 defmodule MotordebusquedaTest do
   use ExUnit.Case
   doctest Motordebusqueda

@@ -1,3 +1,13 @@
+# Universidad del Valle de Guatemala
+# Algoritmos y Estructuras de Datos
+# Ing. Douglas Barrios
+# @author: Marcelo Detlefsen
+# Creación: 18/05/2025
+# Última modificación: 19/05/2025
+# File Name: mix.exs
+# Descripción: Archivo de configuración Mix para el proyecto Motordebusqueda.
+#              Define las dependencias, configuración de la aplicación y alias de tareas.
+
 defmodule Motordebusqueda.MixProject do
   use Mix.Project
 

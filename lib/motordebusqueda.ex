@@ -1,3 +1,14 @@
+# Universidad del Valle de Guatemala
+# Algoritmos y Estructuras de Datos
+# Ing. Douglas Barrios
+# @author: Marcelo Detlefsen
+# Creación: 18/05/2025
+# Última modificación: 19/05/2025
+# File Name: motordebusqueda.ex
+# Descripción: Este módulo implementa un motor de búsqueda simple en Elixir.
+#              Permite indexar sitios web (o sitios de ejemplo locales), almacenar el índice en memoria usando ETS,
+#              y realizar búsquedas de palabras clave mostrando las URLs donde aparecen y la cantidad de coincidencias.
+
 defmodule Motordebusqueda do
   @moduledoc """
   Motor de búsqueda simplificado con Elixir.

@@ -1,3 +1,13 @@
+# Universidad del Valle de Guatemala
+# Algoritmos y Estructuras de Datos
+# Ing. Douglas Barrios
+# @author: Marcelo Detlefsen
+# Creación: 18/05/2025
+# Última modificación: 19/05/2025
+# File Name: cli.ex
+# Descripción: Módulo para la interfaz de línea de comandos (CLI) que permite interactuar con el motor de búsqueda.
+#              Ofrece opciones para indexar URLs, indexar sitios de ejemplo, buscar términos y mostrar estadísticas.
+
 defmodule Motordebusqueda.CLI do
   @moduledoc """
   Módulo CLI para interactuar con el motor de búsqueda.
