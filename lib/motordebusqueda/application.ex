@@ -1,6 +1,4 @@
 defmodule Motordebusqueda.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
   @moduledoc false
 
   use Application
@@ -11,6 +9,9 @@ defmodule Motordebusqueda.Application do
       # Starts a worker by calling: Motordebusqueda.Worker.start_link(arg)
       # {Motordebusqueda.Worker, arg}
     ]
+
+    # Inicializar la tabla ETS al arrancar la aplicación
+    :ets.new(:search_index, [:set, :public, :named_table])
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
