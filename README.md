@@ -14,7 +14,7 @@ El motor utiliza ETS (Erlang Term Storage) para almacenar eficientemente el índ
 1. Clonar el repositorio:
     ```bash
     git clone https://github.com/MarceloDetlefsen/Motor-Simple-de-Busqueda.git
-    cd motor-de-busqueda
+    cd Motor-Simple-de-Busqueda
     ```
 
 2. Instalar las dependencias:
