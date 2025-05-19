@@ -11,7 +11,15 @@ defmodule Motordebusqueda.Application do
     ]
 
     # Inicializar la tabla ETS al arrancar la aplicación
-    :ets.new(:search_index, [:set, :public, :named_table])
+    # Verificar si la tabla ya existe antes de crearla
+    case :ets.whereis(:search_index) do
+      :undefined ->
+        :ets.new(:search_index, [:set, :public, :named_table])
+
+      _ ->
+        # La tabla ya existe, no hacer nada
+        :ok
+    end
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

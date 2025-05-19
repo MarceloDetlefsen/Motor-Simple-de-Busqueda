@@ -8,7 +8,16 @@ defmodule Motordebusqueda do
   ]
 
   def start() do
-    :ets.new(:search_index, [:set, :public, :named_table])
+    # Verificar si la tabla ya existe antes de crearla
+    case :ets.whereis(:search_index) do
+      :undefined ->
+        :ets.new(:search_index, [:set, :public, :named_table])
+
+      _ ->
+        # La tabla ya existe, no hacer nada
+        :ok
+    end
+
     :ok
   end
 

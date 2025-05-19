@@ -7,7 +7,8 @@ defmodule Motordebusqueda.MixProject do
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -26,6 +27,14 @@ defmodule Motordebusqueda.MixProject do
       {:httpoison, "~> 2.1"},
       # Parser HTML
       {:floki, "~> 0.34.0"}
+    ]
+  end
+
+  # Define aliases
+  defp aliases do
+    [
+      # Alias para ejecutar el motor de búsqueda
+      motor: ["run -e 'Motordebusqueda.CLI.main()'"]
     ]
   end
 end

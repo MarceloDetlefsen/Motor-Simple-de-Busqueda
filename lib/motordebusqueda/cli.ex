@@ -4,7 +4,7 @@ defmodule Motordebusqueda.CLI do
   """
 
   def main do
-    # Inicializar la tabla ETS
+    # Inicializar la tabla ETS (ahora verifica si ya existe)
     IO.puts("Inicializando motor de búsqueda...")
     Motordebusqueda.start()
 
