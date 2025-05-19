@@ -11,29 +11,36 @@ defmodule Motordebusqueda.CLI do
     IO.puts("\n=== Motor de Búsqueda Simple ===")
     IO.puts("Comandos disponibles:")
     IO.puts("  1. Indexar URLs")
-    IO.puts("  2. Buscar")
-    IO.puts("  3. Salir")
+    IO.puts("  2. Indexar Sitios de Ejemplo")
+    IO.puts("  3. Buscar")
+    IO.puts("  4. Estadísticas")
+    IO.puts("  5. Salir")
 
     menu_loop()
   end
 
   defp menu_loop do
-    IO.puts("\n¿Qué deseas hacer? (1-3): ")
+    IO.puts("\n¿Qué deseas hacer? (1-5): ")
 
     case IO.gets("") |> String.trim() do
       "1" ->
         indexar_urls()
 
       "2" ->
-        buscar()
+        indexar_sitios_ejemplo()
 
       "3" ->
+        buscar()
+
+      "4" ->
+        mostrar_estadisticas()
+
+      "5" ->
         IO.puts("¡Hasta luego!")
         System.halt(0)
 
       _ ->
         IO.puts("Opción no válida. Intenta de nuevo.")
-        menu_loop()
     end
 
     menu_loop()
@@ -42,12 +49,20 @@ defmodule Motordebusqueda.CLI do
   defp indexar_urls do
     IO.puts("\n=== Indexar URLs ===")
     IO.puts("Ingresa las URLs a indexar (separadas por espacios):")
+    IO.puts("Ejemplo: https://elixir-lang.org https://hexdocs.pm")
 
     urls =
       IO.gets("")
       |> String.trim()
-      |> String.split(" ")
+      |> String.split(~r/\s+/)
       |> Enum.filter(&(String.length(&1) > 0))
+      |> Enum.map(fn url ->
+        if String.starts_with?(url, "http") do
+          url
+        else
+          "https://" <> url
+        end
+      end)
 
     if Enum.empty?(urls) do
       IO.puts("No se ingresaron URLs.")
@@ -56,6 +71,12 @@ defmodule Motordebusqueda.CLI do
       Motordebusqueda.index_urls(urls)
       IO.puts("Indexación completada.")
     end
+  end
+
+  defp indexar_sitios_ejemplo do
+    IO.puts("\n=== Indexar Sitios de Ejemplo ===")
+    IO.puts("Indexando sitios de ejemplo para pruebas...")
+    Motordebusqueda.index_sample_sites()
   end
 
   defp buscar do
@@ -80,6 +101,23 @@ defmodule Motordebusqueda.CLI do
             IO.puts("#{index}. #{result}")
           end)
       end
+    end
+  end
+
+  defp mostrar_estadisticas do
+    IO.puts("\n=== Estadísticas del Motor de Búsqueda ===")
+
+    stats = Motordebusqueda.get_stats()
+
+    IO.puts("Palabras indexadas: #{stats.palabras_indexadas}")
+    IO.puts("Total de URLs indexadas: #{stats.total_urls}")
+
+    if stats.total_urls > 0 do
+      IO.puts("\nURLs en el índice:")
+
+      Enum.each(stats.urls_indexadas, fn url ->
+        IO.puts("- #{url}")
+      end)
     end
   end
 end
